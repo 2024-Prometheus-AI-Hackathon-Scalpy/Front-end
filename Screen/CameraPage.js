@@ -1,10 +1,13 @@
+{
+  /* CameraPage.js */
+}
 import React, { useState, useEffect } from "react";
 import { Text, View, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { Camera } from "expo-camera";
 import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
 
-const CameraPage = ({ navigation }) => {
+const CameraPage = () => {
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [image, setImage] = useState(null);
@@ -54,7 +57,7 @@ const CameraPage = ({ navigation }) => {
     <View style={styles.container}>
       <Camera style={styles.camera} type={type}>
         <View style={styles.controlContainer}>
-          {/* {image && (
+          {image && (
             <TouchableOpacity style={styles.controlButton} onPress={pickImage}>
               <Image
                 source={{ uri: image }}
@@ -67,7 +70,7 @@ const CameraPage = ({ navigation }) => {
                 }}
               />
             </TouchableOpacity>
-          )} */}
+          )}
           <TouchableOpacity
             style={styles.controlButton}
             onPress={() => {
