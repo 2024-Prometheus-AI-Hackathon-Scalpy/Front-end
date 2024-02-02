@@ -1,0 +1,126 @@
+{
+  "status": 200,
+  "message": "카페 검색에 성공했습니다.",
+  "data": [
+    {
+      "month": 1,
+      "scalpimage": [
+        {
+          "date": "01.03",
+          "image": "",
+          "state": "관리 필요"
+        }
+      ],
+      "products": [
+        {
+          "date": "01.03-12",
+          "company": "아로마티카",
+          "product": "로즈마리 스칼프 스케일링 샴푸"
+        }
+      ],
+      "drugs": [
+        {
+          "date": "01.03-18",
+          "company": "뉴트리코스트",
+          "drug": "비오틴 10,000mcg"
+        }
+      ]
+    },
+    {
+      "month": 2,
+      "scalpimage": [
+        {
+          "date": "02.03",
+          "image": "",
+          "state": "관리 필요"
+        }
+      ],
+      "products": [
+        {
+          "date": "02.03-12",
+          "company": "아로마티카",
+          "product": "로즈마리 스칼프 스케일링 샴푸"
+        }
+      ],
+      "drugs": [
+        {
+          "date": "02.03-18",
+          "company": "뉴트리코스트",
+          "drug": "비오틴 10,000mcg"
+        }
+      ]
+    },
+    {
+      "month": 3,
+      "scalpimage": [
+        {
+          "date": "03.03",
+          "image": "",
+          "state": "관리 필요"
+        }
+      ],
+      "products": [
+        {
+          "date": "03.03-12",
+          "company": "아로마티카",
+          "product": "로즈마리 스칼프 스케일링 샴푸"
+        }
+      ],
+      "drugs": [
+        {
+          "date": "03.03-18",
+          "company": "뉴트리코스트",
+          "drug": "비오틴 10,000mcg"
+        }
+      ]
+    },
+    {
+      "month": 4,
+      "scalpimage": [
+        {
+          "date": "04.03",
+          "image": "",
+          "state": "관리 필요"
+        }
+      ],
+      "products": [
+        {
+          "date": "04.03-12",
+          "company": "아로마티카",
+          "product": "로즈마리 스칼프 스케일링 샴푸"
+        }
+      ],
+      "drugs": [
+        {
+          "date": "04.03-18",
+          "company": "뉴트리코스트",
+          "drug": "비오틴 10,000mcg"
+        }
+      ]
+    },
+    {
+      "month": 5,
+      "scalpimage": [
+        {
+          "date": "05.03",
+          "image": "",
+          "state": "관리 필요"
+        }
+      ],
+      "products": [
+        {
+          "date": "05.03-12",
+          "company": "아로마티카",
+          "product": "로즈마리 스칼프 스케일링 샴푸"
+        }
+      ],
+      "drugs": [
+        {
+          "date": "05.03-18",
+          "company": "뉴트리코스트",
+          "drug": "비오틴 10,000mcg"
+        }
+      ]
+    }
+  ]
+}
