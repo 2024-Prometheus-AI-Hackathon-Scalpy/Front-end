@@ -1,48 +1,29 @@
-{
-  /* CameraPage.js */
-}
-import React, { useState, useEffect } from "react";
-import { Text, View, TouchableOpacity, StyleSheet, Image } from "react-native";
+import React, { useState, useEffect, useRef } from "react";
+import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
 import { Camera } from "expo-camera";
-import * as ImagePicker from "expo-image-picker";
-import * as MediaLibrary from "expo-media-library";
 
 const CameraPage = () => {
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
-  const [image, setImage] = useState(null);
+  const [photo, setPhoto] = useState(null);
+  const cameraRef = useRef(null);
 
   useEffect(() => {
     (async () => {
       const { status } = await Camera.requestCameraPermissionsAsync();
       setHasPermission(status === "granted");
-
-      const mediaStatus = await MediaLibrary.requestPermissionsAsync();
-      if (mediaStatus.granted) {
-        const { assets } = await MediaLibrary.getAssetsAsync({
-          first: 1,
-          sortBy: MediaLibrary.SortBy.creationTime,
-        });
-
-        if (assets.length > 0) {
-          setImage(assets[0].uri);
-        }
-      }
     })();
   }, []);
 
-  const pickImage = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      aspect: [4, 3],
-      quality: 1,
-    });
-
-    console.log(result);
-
-    if (!result.cancelled) {
-      setImage(result.uri);
+  const takePicture = async () => {
+    if (cameraRef.current) {
+      const options = { quality: 0.5, base64: true, skipProcessing: true };
+      const data = await cameraRef.current.takePictureAsync(options);
+      const source = data.uri;
+      if (source) {
+        setPhoto(source);
+        console.log("photo", source);
+      }
     }
   };
 
@@ -55,32 +36,9 @@ const CameraPage = () => {
 
   return (
     <View style={styles.container}>
-      <Camera style={styles.camera} type={type}>
+      <Camera style={styles.camera} type={type} ref={cameraRef}>
         <View style={styles.controlContainer}>
-          {image && (
-            <TouchableOpacity style={styles.controlButton} onPress={pickImage}>
-              <Image
-                source={{ uri: image }}
-                style={{
-                  width: 50,
-                  height: 50,
-                  position: "absolute",
-                  left: 0,
-                  bottom: 0,
-                }}
-              />
-            </TouchableOpacity>
-          )}
-          <TouchableOpacity
-            style={styles.controlButton}
-            onPress={() => {
-              setType(
-                type === Camera.Constants.Type.back
-                  ? Camera.Constants.Type.front
-                  : Camera.Constants.Type.back
-              );
-            }}
-          >
+          <TouchableOpacity style={styles.controlButton} onPress={takePicture}>
             <Text style={styles.controlText}>촬 영</Text>
           </TouchableOpacity>
         </View>

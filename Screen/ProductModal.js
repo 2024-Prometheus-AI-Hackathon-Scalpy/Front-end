@@ -42,8 +42,8 @@ const ProductModal = ({ modalVisible, setModalVisible, navigation }) => {
             <Text style={styles.comText}>아로마티카</Text>
 
             <View style={{ flexDirection: "row" }}>
-              <Text style={styles.prodText}>로즈마리 스칼프</Text>
-              <Text style={styles.prodText}>스케일링 샴푸</Text>
+              <Text style={styles.prodText}>로즈마리 스칼프 스케일링 샴푸</Text>
+              {/* <Text style={styles.prodText}></Text> */}
               <Text style={styles.modalText}>를</Text>
             </View>
             <Text style={styles.periodText}>2024.12.01 ~ 2024.12.22</Text>
@@ -144,6 +144,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     lineHeight: 24,
     marginBottom: 14,
+    marginLeft: 30,
   },
   periodText: {
     color: "#DFCB09",

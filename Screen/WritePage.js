@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   View,
   Text,
@@ -7,17 +7,49 @@ import {
   Image,
   StyleSheet,
 } from "react-native";
-import { monthData } from "./monthData.json";
-// import { monthData } from "monthData.json";
 
 const WritePage = () => {
-  const monthlyData = monthData;
-  //   monthlyData = data.data;
-
-  const [selectedMonth, setSelectedMonth] = useState("");
+  const monthlyData = [
+    {
+      month: "1월",
+    },
+    {
+      month: "2월",
+    },
+    {
+      month: "3월",
+    },
+    {
+      month: "4월",
+    },
+    {
+      month: "5월",
+    },
+    {
+      month: "6월",
+    },
+    {
+      month: "7월",
+    },
+    {
+      month: "8월",
+    },
+    {
+      month: "9월",
+    },
+    {
+      month: "10월",
+    },
+    {
+      month: "11월",
+    },
+    {
+      month: "12월",
+    },
+  ];
 
   return (
-    <View style={{ backgroundColor: "#FFF" }}>
+    <View>
       <Text
         style={{
           marginTop: 24,
@@ -48,16 +80,14 @@ const WritePage = () => {
         {monthlyData.map((data, index) => (
           <TouchableOpacity
             key={index}
-            onPress={() => setSelectedMonth(data.month)}
+            onPress={() => alert(`선택한 월: ${data.month}`)}
           >
             <View style={styles.month}>
-              <Text>{data.month + "월"}</Text>{" "}
-              {/* 숫자를 문자열로 변환합니다 */}
+              <Text>{data.month}</Text>
             </View>
           </TouchableOpacity>
         ))}
       </ScrollView>
-      {selectedMonth === "1월" && <View style={styles.selectedTri}></View>}
     </View>
   );
 };
@@ -81,15 +111,5 @@ const styles = StyleSheet.create({
     height: 2,
     backgroundColor: "#E7E7E7",
     marginRight: 10,
-  },
-  selectedTri: {
-    position: "absolute",
-    height: 30,
-    width: 5,
-    backgroundColor: "#F7F7F7",
-    justifyContent: "center",
-    top: 50,
-    left: 50,
-    marginLeft: 50,
   },
 });
